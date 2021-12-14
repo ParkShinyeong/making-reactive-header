@@ -1,0 +1,119 @@
+/*모든 박스에서 여백과 테두리를 포함한 크기로 계산한다.  */
+* {
+ box-sizing: border-box;
+}
+
+body {
+ margin: 0;
+}
+
+a {
+ text-decoration: none;
+ color: rgb(252, 248, 241);
+}
+
+li {
+ list-style: none;
+}
+
+.navbar {
+ background-color: rgb(28, 66, 116);
+ padding: 8px 12px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ color: rgb(252, 248, 241);
+}
+
+.navbar__logo {
+ display: flex;
+ flex-direction: row;
+ font-size: 20px;
+ padding: 8px;
+}
+
+.navbar__logo i {
+ padding: 4px;
+ color: rgb(214, 157, 0);
+}
+
+.navbar__logo span {
+ padding: 4px;
+}
+
+.navbar__menu {
+ display: flex;
+ flex-direction: row;
+ align-items: space-between;
+ padding-left: 0;
+}
+
+.navbar__menu li {
+ padding: 8px 12px;
+}
+
+.navbar__menu li:hover {
+ background-color: rgb(172, 172, 140);
+ border-radius: 4px;
+}
+
+.navbar__icons {
+ display: flex;
+ flex-direction: row;
+ padding-left: 0;
+}
+
+.navbar__icons li {
+ padding: 8px 12px;
+}
+
+.navbar__toogleBtn {
+ display: none;
+}
+
+/* 반응형 레이아웃
+media query 사용  */
+
+@media screen and (max-width: 768px) {
+ .navbar {
+  flex-direction: column;
+  align-items: flex-start;
+ }
+ .navbar__menu {
+  display: none;
+  flex-direction: column;
+  /* flex-direction이 column일 때는 justify-content와 align-items의 방향이 바뀐다. */
+  align-items: center;
+  width: 100%;
+  /* width를 100%로 설정해주어야, 제대로 메뉴가 중간에 온다.  */
+ }
+
+ .navbar__menu li {
+  text-align: center;
+  padding: 8px 12px;
+ }
+
+ .navbar__menu li:hover {
+  background-color: rgb(172, 172, 140);
+  width: 100%;
+ }
+
+ .navbar__icons {
+  display: none;
+  justify-content: center;
+  width: 100%;
+ }
+
+ .navbar__toogleBtn {
+  display: block;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  font-size: 20px;
+ }
+
+ .navbar__menu.active,
+ .navbar__icons.active {
+  display: flex;
+ }
+}
